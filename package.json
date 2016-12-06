@@ -1,23 +1,26 @@
 {
-    "name": "jsonapi-redux-demo",
-    "version": "1.0.0",
-    "description": "Demo app to experiment with the capabilities of the react-json-api package",
-    "main": "index.js",
-    "dependencies": {
-        "react": "^15.4.1",
-        "react-dom": "^15.4.1"
-    },
-    "devDependencies": {
-        "babel-core": "^6.18.2",
-        "babel-loader": "^6.2.8",
-        "babel-preset-es2015": "^6.18.0",
-        "babel-preset-react": "^6.16.0",
-        "webpack": "^1.13.3",
-        "webpack-dev-server": "^1.16.2"
-    },
-    "scripts": {
-        "start": "webpack-dev-server --hot"
-    },
-    "author": "Tom Harvey",
-    "license": "MIT"
+  "name": "jsonapi-redux-demo",
+  "version": "1.0.0",
+  "description": "Demo app to experiment with the capabilities of the react-json-api package",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-redux": "^4.4.6",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --hot"
+  },
+  "author": "Tom Harvey",
+  "license": "MIT"
 }
