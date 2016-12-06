@@ -18,7 +18,7 @@ store.dispatch(setEndpointPath('/api/v1'));
 
 store.dispatch(setAccessToken('token'));
 
-class TodoList extends React.Component {
+class PostList extends React.Component {
     componentWillMount() {
         store.dispatch(readEndpoint('posts'));
     }
@@ -43,7 +43,7 @@ const mapStateToProps = (state) => {
 
 const ApiResults = connect(
     mapStateToProps
-)(TodoList)
+)(PostList)
 
 ReactDOM.render(
     <ApiResults store={store} />,
