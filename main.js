@@ -21,7 +21,7 @@ class TodoList extends React.Component {
         return (
             <ul>
             {this.props.events.data.map(event => (
-                <li>{event.id}</li>
+                <li key={event.id} >{event.id}</li>
             ))}
             </ul>
             );
