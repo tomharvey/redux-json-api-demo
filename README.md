@@ -7,7 +7,7 @@ While there are some docs in the [Redux Json Api GitHub repo](https://github.com
 To experiment with this, I started with a basic 'hello world' react app.  I then added to this; adapting the app to get then display a list of items from an API server. Focusing on the bare minimum required to implement this gave me a decent understanding of how to use the library and a clear way to demonstrate the specific use of redux-json-api over any other react/redux cruft - I hope it makes for a useful getting started for others.
 
 ## Boilerplate
-Start by creating the 3 files described below.
+Start by creating the 3 files described below. Or, for the full code to create the hello world app, checkout the branch `hello_world` [here](https://github.com/tomharvey/redux-json-api-demo/tree/hello_world)
 
 
 #### html
@@ -155,5 +155,3 @@ import { setEndpointHost, setEndpointPath } from 'redux-json-api';
 This should show you how to add redux-json-api to your stack and get you started.
 
 I've included a `api-output.json` in this repo which will show what the API server output would look like for this example. It includes comments as well as posts, you should be able to add these objects in `mapStateToProps` and then display them through `TodoList.render`.
-
-To see the full diff, taking you from the hello world app to the API calling version check out [this diff]()
