@@ -18,14 +18,14 @@ store.dispatch(setAccessToken('1234'));
 
 class TodoList extends React.Component {
     componentWillMount() {
-        store.dispatch(readEndpoint('todos'));
+        store.dispatch(readEndpoint('events/1'));
     }
 
     render() {
         return (
             <ul>
-                {this.props.todos.data.map(todo => (
-                    <li key={todo.id} >{todo.description}</li>
+                {this.props.events.data.map(event => (
+                    <li key={event.id} >{event.id}</li>
                 ))}
             </ul>
         );
@@ -35,8 +35,8 @@ class TodoList extends React.Component {
 
 const mapStateToProps = (state) => {
     console.log(state)
-    const todos = state.api.todos || { data: [] };
-    return {todos}
+    const events = state.api.events || { data: [] };
+    return {events}
 };
 
 const ApiResults = connect(
