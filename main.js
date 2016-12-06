@@ -33,13 +33,11 @@ class TodoList extends React.Component {
 
 };
 
-const mapStateToProps = (
-        { api: 
-            { events = { data: [] } }
-        }
-    ) => ({
-    events
-});
+const mapStateToProps = (state) => {
+    console.log(state)
+    const events = state.api.events || { data: [] };
+    return {events}
+};
 
 const ApiResults = connect(
     mapStateToProps
