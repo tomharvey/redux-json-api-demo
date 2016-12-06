@@ -12,20 +12,22 @@ const reducer = combineReducers({
 });
 
 const store = createStore(reducer, applyMiddleware(thunk))
-store.dispatch(setEndpointHost('http://localhost:3000'));
+
+store.dispatch(setEndpointHost('http://api-host'));
 store.dispatch(setEndpointPath('/api/v1'));
-store.dispatch(setAccessToken('1234'));
+
+store.dispatch(setAccessToken('token'));
 
 class TodoList extends React.Component {
     componentWillMount() {
-        store.dispatch(readEndpoint('events/1'));
+        store.dispatch(readEndpoint('posts'));
     }
 
     render() {
         return (
             <ul>
-                {this.props.events.data.map(event => (
-                    <li key={event.id} >{event.id}</li>
+                {this.props.posts.data.map(post => (
+                    <li key={post.id} >{post.title}</li>
                 ))}
             </ul>
         );
@@ -35,8 +37,8 @@ class TodoList extends React.Component {
 
 const mapStateToProps = (state) => {
     console.log(state)
-    const events = state.api.events || { data: [] };
-    return {events}
+    const posts = state.api.posts || { data: [] };
+    return {posts}
 };
 
 const ApiResults = connect(
@@ -45,5 +47,5 @@ const ApiResults = connect(
 
 ReactDOM.render(
     <ApiResults store={store} />,
-    document.getElementById('todos')
+    document.getElementById('posts')
 );
