@@ -8,6 +8,7 @@
     "react-dom": "^15.4.1",
     "react-redux": "^4.4.6",
     "redux": "^3.6.0",
+    "redux-json-api": "^1.6.2",
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
