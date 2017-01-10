@@ -5,7 +5,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { connect } from 'react-redux';
 import thunk from 'redux-thunk';
 import { reducer as api, readEndpoint } from 'redux-json-api';
-import { setEndpointHost, setEndpointPath, setAccessToken } from 'redux-json-api';
+import { setEndpointHost, setEndpointPath, setAccessToken, setHeaders } from 'redux-json-api';
 
 const reducer = combineReducers({
     api
@@ -13,32 +13,32 @@ const reducer = combineReducers({
 
 const store = createStore(reducer, applyMiddleware(thunk))
 
-store.dispatch(setEndpointHost('http://api-host'));
-store.dispatch(setEndpointPath('/api/v1'));
-
-store.dispatch(setAccessToken('token'));
+store.dispatch(setEndpointHost('http://localhost:8080'));
+store.dispatch(setEndpointPath('/api/v1'))
 
 class PostList extends React.Component {
     componentWillMount() {
-        store.dispatch(readEndpoint('posts'));
+        store.dispatch(readEndpoint('posts.json'));
     }
 
     render() {
         return (
-            <ul>
+            <div>
                 {this.props.posts.data.map(post => (
-                    <li key={post.id} >{post.title}</li>
+                    <h1 key={post.id} >{post.attributes.title}</h1>
                 ))}
-            </ul>
+            </div>
         );
     }
 
 };
 
 const mapStateToProps = (state) => {
-    console.log(state)
+    console.log(state) // Check the console to see how the state object changes as we read the API
     const posts = state.api.posts || { data: [] };
-    return {posts}
+    return {
+        posts
+    }
 };
 
 const ApiResults = connect(
