@@ -121,11 +121,11 @@ class TodoList extends React.Component {
 
     render() {
         return (
-            <ul>
+            <div>
                 {this.props.posts.data.map(post => (
-                    <li key={post.id} >{post.attributes.title}</li>
+                    <h1 key={post.id} >{post.attributes.title}</h1>
                 ))}
-            </ul>
+            </div>
         );
     }
 
