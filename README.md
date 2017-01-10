@@ -147,7 +147,7 @@ ReactDOM.render(
 ```
 
 #### Imports
-We now need to import more than just the basic `react` and `react-don` objects so we need to add to the top of the file with:
+We now need to import more than just the basic `react` and `react-dom` objects so we need to add to the top of the file with:
 
 ``` js
 import { createStore, applyMiddleware, combineReducers } from 'redux'
