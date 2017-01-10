@@ -28,7 +28,7 @@ The `index.html` file contains some basic html, including a `div` with the id of
 ```
 
 #### npm and webpack setup
-The `webpack.config.js` file contains some instructions on how webpack should operate.
+The `webpack.config.js` file contains some instructions on how webpack should operate, including webpack-dev-server which will be serving our files over http from localhost.
 
 The `package.json` file contains some dependancies for the project. Once you've created the file you should be able to run `npm install` to install all of these.
 
@@ -73,11 +73,17 @@ const store = createStore(reducer, applyMiddleware(thunk))
 ```
 
 #### Configuring the API server options
-We add the API server hostname, path and any required authentication token strings to out newly created store.
+We add the API server hostname, path and any required authentication token strings to out newly created store. In the example code, I've included soe dummy JSON and we'll serve that from the webpack-dev server as well, so we're stil lusing localhost.
 
 ``` js
-store.dispatch(setEndpointHost('http://api-host'));
+store.dispatch(setEndpointHost('http://localhost:8080'));
 store.dispatch(setEndpointPath('/api/v1'));
+```
+
+If the API server you're playing with requires some authentication token you will need to include that here as well.
+
+``` js
+store.dispatch(setAccessToken('SECRET-TOKEN-HERE'));
 ```
 
 #### Mapping state to props
@@ -117,7 +123,7 @@ class TodoList extends React.Component {
         return (
             <ul>
                 {this.props.posts.data.map(post => (
-                    <li key={post.id} >{post.title}</li>
+                    <li key={post.id} >{post.attributes.title}</li>
                 ))}
             </ul>
         );
@@ -152,6 +158,6 @@ import { setEndpointHost, setEndpointPath } from 'redux-json-api';
 ```
 
 ## Finally
-This should show you how to add redux-json-api to your stack and get you started.
+This should show you how to add redux-json-api to your stack and get you started. Have a look at the console and observe how the `state` object changes as we configure the api, start to read form the api and successfully receive a response.
 
-I've included a `api-output.json` in this repo which will show what the API server output would look like for this example. It includes comments as well as posts, you should be able to add these objects in `mapStateToProps` and then display them through `TodoList.render`.
+I've included a `posts.json` in this repo at `/api/v1/` which will show what the API server output would look like for this example. It includes comments as well as posts, you should be able to add these objects in `mapStateToProps` and then display them in `TodoList.render`.
