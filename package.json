@@ -4,8 +4,8 @@
   "description": "Demo app to experiment with the capabilities of the react-json-api package",
   "main": "index.js",
   "dependencies": {
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-redux": "^4.4.6",
     "redux": "^3.6.0",
     "redux-json-api": "^1.6.2",
