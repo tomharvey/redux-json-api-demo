@@ -5,7 +5,7 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { connect } from 'react-redux';
 import thunk from 'redux-thunk';
 import { reducer as api, readEndpoint } from 'redux-json-api';
-import { setEndpointHost, setEndpointPath, setAccessToken, setHeaders } from 'redux-json-api';
+import { setAxiosConfig } from 'redux-json-api';
 
 const reducer = combineReducers({
     api
@@ -13,8 +13,12 @@ const reducer = combineReducers({
 
 const store = createStore(reducer, applyMiddleware(thunk))
 
-store.dispatch(setEndpointHost('http://localhost:8080'));
-store.dispatch(setEndpointPath('/api/v1'))
+store.dispatch(setAxiosConfig({
+    baseURL: 'http://localhost:8080/api/v1',
+    headers: {
+        'Authorization': 'bearer' + Math.random(),
+    }
+}));
 
 class PostList extends React.Component {
     componentWillMount() {

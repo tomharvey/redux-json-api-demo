@@ -1,4 +1,7 @@
-# Getting started with redux-json-api
+# Getting started with redux-json-api v2
+
+Forked from [@tomharvey](https://github.com/tomharvey/redux-json-api-demo)
+
 ## Introduction
 I have a need to pull [json api](http://jsonapi.org) formatted data from an API server. The [Redux Json Api package](https://github.com/dixieio/redux-json-api) is listed as one of the JS client implementations, so it seems like a good place to start in solving that need.
 
@@ -75,15 +78,25 @@ const store = createStore(reducer, applyMiddleware(thunk))
 #### Configuring the API server options
 We add the API server hostname, path and any required authentication token strings to out newly created store. In the example code, I've included soe dummy JSON and we'll serve that from the webpack-dev server as well, so we're stil lusing localhost.
 
+
+The configuration on version 1 used to be:
+
 ``` js
 store.dispatch(setEndpointHost('http://localhost:8080'));
 store.dispatch(setEndpointPath('/api/v1'));
 ```
 
-If the API server you're playing with requires some authentication token you will need to include that here as well.
+On version 2, all these `setEndpointHost, setEndpointPath, setAccessToken, setHeaders`
+are replaced with `setAxiosConfig`. Every configuration available in Axios can be set here,
+for a full list of options see the [Axios documentation](https://github.com/axios/axios#request-config).
 
-``` js
-store.dispatch(setAccessToken('SECRET-TOKEN-HERE'));
+```js
+store.dispatch(setAxiosConfig({
+    baseURL: 'http://localhost:8080/api/v1',
+    headers: {
+        'Authorization': 'bearer' + Math.random(),
+    }
+}));
 ```
 
 #### Mapping state to props
