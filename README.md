@@ -1,4 +1,7 @@
 # Getting started with redux-json-api
+
+This guide describes use of v1 of Redux-Json-Api library. See this awesome update from [@dvidsilva](https://github.com/dvidsilva/redux-json-api-demo) for v2 guide.
+
 ## Introduction
 I have a need to pull [json api](http://jsonapi.org) formatted data from an API server. The [Redux Json Api package](https://github.com/dixieio/redux-json-api) is listed as one of the JS client implementations, so it seems like a good place to start in solving that need.
 
