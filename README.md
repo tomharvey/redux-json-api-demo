@@ -1,7 +1,5 @@
 # Getting started with redux-json-api v2
 
-Forked from [@tomharvey](https://github.com/tomharvey/redux-json-api-demo)
-
 ## Introduction
 I have a need to pull [json api](http://jsonapi.org) formatted data from an API server. The [Redux Json Api package](https://github.com/dixieio/redux-json-api) is listed as one of the JS client implementations, so it seems like a good place to start in solving that need.
 
